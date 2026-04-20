@@ -1,3 +1,114 @@
+/* Ajustes de estilo para el cuerpo de la página */
 body {
-    background-color: skyblue;
+    /* Centrar el contenido y establecer un fondo degradado */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    /* El 100% de la altura de la ventana garantiza que el fondo ocupe todo el espacio y que el footer esté siempre hasta el final*/
+    min-height: 100vh;
+    background-image: linear-gradient(to bottom left, #ffffff, #ff67b3);
+    font-family: sans-serif;
+    color: #d63384;
+}
+
+/* Estilos para el encabezado */
+header {
+    width: 100%;
+    background-color: #d63384;
+    color: white;
+    padding: 0;
+    text-align: center;
+}
+
+/* Estilos para el contenido principal */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    flex: 1;
+    /* Permite que el main ocupe el espacio disponible */
+}
+
+.inicio-bienvenida {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+}
+
+/* Estilos para las opciones de inicio */
+.inicio-opciones {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+/* Estilos para la navegación del encabezado */
+.header-nav {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    width: 100%;
+    font-size: bold;
+}
+
+/* Estilos para los enlaces de navegación */
+.header-nav a {
+    color: #d63384;
+    text-decoration: none;
+    padding: 0 10px;
+    font-weight: bold;
+}
+
+/* Estilos para los enlaces de navegación al pasar el mouse */
+.botones-registro {
+    width: 25rem;
+    height: 12rem;
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 20px;
+    /*  background-color: aquamarine; */
+    padding: 0;
+    margin: 0;
+}
+
+/* Estilos para los botones de registro de entrada y salida */
+.boton-registro-entrada,
+.boton-registro-salida {
+    width: 40%;
+    height: 90%;
+    color: #d63384;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: auto;
+    margin: auto;
+    border: 1px solid #d63384;
+    border-radius: 15px;
+    background-color: #fbddf7;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Estilos para los botones de registro al pasar el mouse */
+.boton-registro-entrada:hover,
+.boton-registro-salida:hover {
+    background-color: #d63384;
+    color: white;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Estilos para el pie de página */
+footer {
+    margin: 0;
+    padding: 0;
+    background-color: #d63384;
+    color: white;
+    text-align: center;
+    width: 100%;
+    font-size: 0.60rem;
+    padding-top: 2px;
 }
