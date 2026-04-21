@@ -27,13 +27,16 @@ class RegistrationController extends AbstractController
 
             // encode the plain password
             $user->setPassword($userPasswordHasher->hashPassword($user, $plainPassword));
+            //Se establece el rol de admin al usuario registrado
+            $user->setRoles(['ROLE_ADMIN']);
 
             $entityManager->persist($user);
             $entityManager->flush();
 
             // do anything else you need here, like send an email
 
-            return $security->login($user, 'form_login', 'main');
+            //return $security->login($user, 'form_login', 'main');  //Iniciar sesión automáticamente después de registrarse
+            return $this->redirectToRoute('app_admin'); //Redirigir a la página de admin después de registrarse
         }
 
         return $this->render('registration/register.html.twig', [
