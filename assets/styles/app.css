@@ -1,138 +1,184 @@
-/* Ajustes de estilo para el cuerpo de la página */
+:root {
+    /* ---VARIABLES PERSONALIZADAS --- */
+    --color-primario: #d63384;
+    --color-primario-suave: #fbddf7;
+    --color-primario-hover: #b02a6a;
+    --color-gradiente-inicio: #ffffff;
+    --color-gradiente-fin: #ff67b3;
+
+    --color-texto-blanco: #ffffff;
+    --color-texto-oscuro: #d63384;
+    --color-fondo-tarjeta: #fbddf7;
+
+    --sombra-estandar: 5px 5px 10px rgba(0, 0, 0, 0.20);
+    --sombra-footer: 0 -5px 5px rgba(0, 0, 0, 0.10);
+    --transicion-rapida: background-color 0.3s ease, color 0.3s ease;
+
+    /* --- SOBRESCRITURA DE BOOTSTRAP --- */
+    --bs-primary: var(--color-primario);
+    --bs-primary-rgb: 214, 51, 132;
+    --bs-primary-bg-subtle: var(--color-primario-suave);
+    --bs-primary-border-subtle: #ff67b3;
+    --bs-focus-ring-color: rgba(214, 51, 132, 0.25);
+    --bs-link-color: var(--color-primario);
+    --bs-link-hover-color: var(--color-primario-hover);
+}
+
+/* Ajustes base del cuerpo */
 body {
-    /* Centrar el contenido y establecer un fondo degradado */
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 0;
-    /* El 100% de la altura de la ventana garantiza que el fondo ocupe todo el espacio y que el footer esté siempre hasta el final*/
     min-height: 100vh;
-    background-image: linear-gradient(to bottom left, #ffffff, #ff67b3);
+    background-image: linear-gradient(to bottom left, var(--color-gradiente-inicio), var(--color-gradiente-fin));
     font-family: sans-serif;
-    color: #d63384;
+    color: var(--color-texto-oscuro);
 }
 
-/* Estilos para el encabezado */
+/* Estilos de Estructura (Header, Main, Footer) */
 header {
     width: 100%;
     margin: 0;
-    padding: 5px 0;
-    background-color: #d63384;
-    color: white;
+    padding: 10px 0;
+    background-color: var(--color-primario);
+    color: var(--color-texto-blanco);
     text-align: center;
 }
 
-/* Estilos para el contenido principal */
 main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 90%;
+    width: 95%;
     flex: 1;
-    /* Permite que el main ocupe el espacio disponible */
+    padding-bottom: 2rem;
 }
 
-.inicio-bienvenida {
+footer {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    margin-top: 10px;
+    padding: 15px;
+    background-color: var(--color-primario);
+    color: var(--color-texto-blanco);
+    text-align: center;
+    width: 100%;
+    font-size: 0.80rem;
+    box-shadow: var(--sombra-footer);
 }
 
-/* Estilos para las opciones de inicio */
-.inicio-opciones {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 20px;
-    font-size: small;
-
-}
-
-/* Estilos para la navegación del encabezado */
+/* Navegación */
 .header-nav {
     display: flex;
     justify-content: space-around;
     padding: 10px 0;
     width: 100%;
-    font-size: bold;
 }
 
-/* Estilos para los enlaces de navegación */
 .header-nav a {
-    color: #d63384;
+    color: var(--color-texto-oscuro);
     text-decoration: none;
     padding: 0 10px;
+    transition: var(--transicion-rapida);
 }
 
-/* Estilos para los enlaces de navegación al pasar el mouse */
+.header-nav a:hover {
+    color: var(--color-primario-hover);
+    text-decoration: underline;
+}
+
+/* Pantalla de Inicio y Botones Grandes */
+.inicio-bienvenida {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    text-align: center;
+}
+
 .botones-registro {
-    width: 25rem;
-    height: 12rem;
+    width: 100%;
+    max-width: 500px;
     display: flex;
     justify-content: space-evenly;
-    margin-top: 20px;
-    /*  background-color: aquamarine; */
-    padding: 0;
-    margin: 0;
+    gap: 20px;
+    margin-top: 30px;
 }
 
-/* Estilos para los botones de registro de entrada y salida */
 .boton-registro-entrada,
 .boton-registro-salida {
-    width: 40%;
-    height: 90%;
-    color: #d63384;
+    width: 180px;
+    height: 180px;
+    color: var(--color-texto-oscuro);
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: auto;
-    margin: auto;
-    border-radius: 15px;
+    border-radius: 20px;
     border: none;
-    background-color: #fbddf7;
+    background-color: var(--color-fondo-tarjeta);
     cursor: pointer;
     font-weight: bold;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.20);
+    box-shadow: var(--sombra-estandar);
+    transition: var(--transicion-rapida);
 }
 
-/* Estilos para los botones de registro al pasar el mouse */
 .boton-registro-entrada:hover,
 .boton-registro-salida:hover {
-    background-color: #d63384;
-    color: white;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    background-color: var(--color-primario);
+    color: var(--color-texto-blanco);
+    transform: translateY(-5px);
 }
 
-/* Estilos para el pie de página */
-footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 10px;
-    padding: 10px;
-    background-color: #d63384;
-    color: white;
-    text-align: center;
-    width: 100%;
-    font-size: 0.70rem;
-    box-shadow: 0 -5px 5px rgba(0, 0, 0, 0.10);
+/* --- PERSONALIZACIÓN DE COMPONENTES BOOTSTRAP --- */
+
+/* Botones Primarios */
+.btn-primary {
+    --bs-btn-bg: var(--color-primario);
+    --bs-btn-border-color: var(--color-primario);
+    --bs-btn-hover-bg: var(--color-primario-hover);
+    --bs-btn-hover-border-color: var(--color-primario-hover);
+    --bs-btn-active-bg: var(--color-primario-hover);
+    --bs-btn-focus-shadow-rgb: var(--bs-primary-rgb);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Estilos para ajuste responsivo */
+/* Formularios y Inputs */
+.form-control:focus {
+    border-color: var(--color-primario);
+    box-shadow: 0 0 0 0.25rem var(--bs-focus-ring-color);
+}
 
-@media (max-width: 1200px) {
-    .footer {
+.form-check-input:checked {
+    background-color: var(--color-primario);
+    border-color: var(--color-primario);
+}
+
+/* Tarjetas (Cards) de Admin */
+.card {
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+/* Ajustes Responsivos */
+@media (max-width: 768px) {
+    .botones-registro {
         flex-direction: column;
+        align-items: center;
+        width: auto;
+    }
+
+    .header-nav {
+        flex-wrap: wrap;
+        gap: 10px;
     }
 }
 
 @media (min-width: 1201px) {
     .header-nav {
-        max-width: 50%;
-        font-size: large;
+        max-width: 60%;
+        font-size: 1.1rem;
         font-weight: 700;
-
     }
-
 }
