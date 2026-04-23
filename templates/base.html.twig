@@ -3,7 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Registro de Entrada a instalaciones INE</title>
+    {% block title %}
+      <title>Registro de Entrada a instalaciones INE</title>
+    {% endblock %}
 
     {% block styles %}
       {{ importmap('app') }}
@@ -19,14 +21,14 @@
 
     {% block nav %}
       <nav class="header-nav">
-        <a href="">Inicio</a>
+        <a href="{{ path('app_inicio') }}">Inicio</a>
         <a href="">Registro de Entrada</a>
         <a href="">Registro de Salida</a>
         <a href="{{ path('app_admin') }}">Administración</a>
       </nav>
     {% endblock %}
 
-    {% block main %}
+    {% block body %}
       {# Contenido principal de cada página. #}
     {% endblock %}
 
