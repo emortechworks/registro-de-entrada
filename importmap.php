@@ -35,4 +35,8 @@ return [
         'version' => '5.3.8',
         'type' => 'css',
     ],
+    'bootstrap-icons/font/bootstrap-icons.css' => [
+        'path' => 'bootstrap-icons.css', // Symfony lo buscará en los paths configurados arriba
+        'type' => 'css',
+    ],
 ];

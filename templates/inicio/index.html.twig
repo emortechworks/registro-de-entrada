@@ -3,18 +3,29 @@
 {% block title %}
   <title>Inicio - Registro de Entrada a Instalaciones INE</title>
 {% endblock %}
+
 {% block body %}
   <main>
-    <div class="inicio-bienvenida">
+    <div class="inicio-bienvenida text-center mt-4">
       <h1>Bienvenido al sistema de registro de entrada a las instalaciones del INE</h1>
       <h2>Por favor, utilice el siguiente menú para continuar.</h2>
     </div>
 
-    <div class="inicio-opciones">
+    <div class="inicio-opciones text-center mt-5">
       <h2>Seleccione una opción</h2>
-      <div class="botones-registro">
-        <button class="boton-registro-entrada">Registrar Entrada</button>
-        <button class="boton-registro-salida">Registrar Salida</button>
+
+      <div class="botones-registro d-flex justify-content-center gap-4 mt-4">
+        {# Botón de Entrada #}
+        <button class="boton-registro-entrada d-flex flex-column align-items-center p-4 btn btn-outline-success">
+          <span class="fw-bold mb-2">Registrar Entrada</span>
+          <i class="bi bi-door-open" style="font-size: 3rem;"></i>
+        </button>
+
+        {# Botón de Salida #}
+        <button class="boton-registro-salida d-flex flex-column align-items-center p-4 btn btn-outline-danger">
+          <span class="fw-bold mb-2">Registrar Salida</span>
+          <i class="bi bi-door-closed" style="font-size: 3rem;"></i>
+        </button>
       </div>
     </div>
   </main>

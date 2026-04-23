@@ -3,16 +3,21 @@
 {% block title %}<title>Registro de usuario administrador</title>{% endblock %}
 
 {% block body %}
-<main class="d-flex container justify-content-center" >
-    <div class="row justify-content-center col-lg-5 col-sm-12" >
-        <div class="col-md-12 ">
-            <div class="card shadow-sm">
+<main class="d-flex container justify-content-center mt-5">
+    <div class="row justify-content-center col-lg-5 col-sm-12">
+        <div class="col-md-12">
+            <div class="card shadow-sm border-0">
                 <div class="card-body p-4">
-                    <h1 class="h3 mb-4 fw-normal text-center">Registro de nuevo usuario</h1>
+                    {# Encabezado corregido #}
+                    <div class="text-center mb-4">
+                        <i class="bi bi-person-plus-fill text-primary" style="font-size: 3.5rem;"></i>
+                        <h1 class="h3 mb-0 fw-bold">Registro de usuario</h1>
+                        <p class="text-muted small">Nueva cuenta para el sistema</p>
+                    </div>
 
-                    {# Errores globales con alerta de Bootstrap #}
                     {% if form_errors(registrationForm) %}
-                        <div class="alert alert-danger">
+                        <div class="alert alert-danger py-2 small">
+                            <i class="bi bi-exclamation-triangle-fill me-2"></i>
                             {{ form_errors(registrationForm) }}
                         </div>
                     {% endif %}
@@ -20,17 +25,23 @@
                     {{ form_start(registrationForm) }}
 
                         <div class="mb-3">
-                            {{ form_label(registrationForm.email, 'Correo Electrónico', {'label_attr': {'class': 'form-label'}}) }}
-                            {{ form_widget(registrationForm.email, {'attr': {'class': 'form-control', 'placeholder': 'nombre@ejemplo.com'}}) }}
-                            <div class="text-danger">
+                            {{ form_label(registrationForm.email, 'Correo electrónico', {'label_attr': {'class': 'form-label'}}) }}
+                            <div class="input-group">
+                                <span class="input-group-text bg-light"><i class="bi bi-envelope-at text-muted"></i></span>
+                                {{ form_widget(registrationForm.email, {'attr': {'class': 'form-control', 'placeholder': 'nombre@ejemplo.com'}}) }}
+                            </div>
+                            <div class="text-danger small">
                                 {{ form_errors(registrationForm.email) }}
                             </div>
                         </div>
 
                         <div class="mb-3">
                             {{ form_label(registrationForm.plainPassword, 'Contraseña', {'label_attr': {'class': 'form-label'}}) }}
-                            {{ form_widget(registrationForm.plainPassword, {'attr': {'class': 'form-control'}}) }}
-                            <div class="text-danger">
+                            <div class="input-group">
+                                <span class="input-group-text bg-light"><i class="bi bi-key text-muted"></i></span>
+                                {{ form_widget(registrationForm.plainPassword, {'attr': {'class': 'form-control', 'placeholder': 'Cree una contraseña'}}) }}
+                            </div>
+                            <div class="text-danger small">
                                 {{ form_errors(registrationForm.plainPassword) }}
                             </div>
                         </div>
@@ -38,17 +49,25 @@
                         <div class="mb-3 form-check">
                             {{ form_widget(registrationForm.agreeTerms, {'attr': {'class': 'form-check-input'}}) }}
                             {{ form_label(registrationForm.agreeTerms, 'Acepto los términos y condiciones', {'label_attr': {'class': 'form-check-label'}}) }}
-                            <div class="text-danger">
+                            <div class="text-danger small">
                                 {{ form_errors(registrationForm.agreeTerms) }}
                             </div>
                         </div>
 
                         <div class="d-grid gap-2 mt-4">
-                            <button type="submit" class="btn btn-primary btn-lg">Registrar</button>
+                            <button type="submit" class="btn btn-primary btn-lg shadow-sm">
+                                <i class="bi bi-check-circle-fill me-1"></i> Registrar
+                            </button>
                         </div>
 
                     {{ form_end(registrationForm) }}
                 </div>
+            </div>
+
+            <div class="text-center mt-3">
+                <a href="{{ path('app_inicio') }}" class="text-decoration-none text-muted small">
+                    <i class="bi bi-arrow-left"></i> Volver al inicio
+                </a>
             </div>
         </div>
     </div>
