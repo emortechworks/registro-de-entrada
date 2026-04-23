@@ -1,25 +1,43 @@
-{% block header %}
-  <!DOCTYPE html>
-  <html lang="es">
-    <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      {% block title %}
-        <title>Registro de Entrada a instalaciones INE</title>
-      {% endblock %}
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registro de Entrada a instalaciones INE</title>
 
-      {% block styles %}
-        {{ importmap('app') }}
-      {% endblock %}
+    {% block styles %}
+      {{ importmap('app') }}
+    {% endblock %}
+  </head>
 
-      {% block scripts %}
+  <body>
+    {% block header %}
+      <header>
+        <h2>Registro de Entrada a Instalaciones</h2>
+      </header>
+    {% endblock %}
 
-      {% endblock %}
-    </head>
-    <body></body>
-  </html>
-{% endblock %}
+    {% block nav %}
+      <nav class="header-nav">
+        <a href="">Inicio</a>
+        <a href="">Registro de Entrada</a>
+        <a href="">Registro de Salida</a>
+        <a href="{{ path('app_admin') }}">Administración</a>
+      </nav>
+    {% endblock %}
 
-{% block body %}
+    {% block main %}
+      {# Contenido principal de cada página. #}
+    {% endblock %}
 
-{% endblock %}
+    {% block footer %}
+      <footer class="footer">
+        <div>&copy; 2026 Instituto Nacional Electoral, CBT Albert Einstein La Paz.</div>
+        <div>Todos los derechos reservados.</div>
+      </footer>
+    {% endblock %}
+  </body>
+  {% block scripts %}
+
+  {% endblock %}
+</html>

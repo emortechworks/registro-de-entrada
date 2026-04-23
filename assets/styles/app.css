@@ -15,9 +15,10 @@ body {
 /* Estilos para el encabezado */
 header {
     width: 100%;
+    margin: 0;
+    padding: 5px 0;
     background-color: #d63384;
     color: white;
-    padding: 0;
     text-align: center;
 }
 
@@ -44,6 +45,8 @@ main {
     flex-direction: column;
     align-items: center;
     margin-top: 20px;
+    font-size: small;
+
 }
 
 /* Estilos para la navegación del encabezado */
@@ -60,7 +63,6 @@ main {
     color: #d63384;
     text-decoration: none;
     padding: 0 10px;
-    font-weight: bold;
 }
 
 /* Estilos para los enlaces de navegación al pasar el mouse */
@@ -86,11 +88,12 @@ main {
     align-items: center;
     padding: auto;
     margin: auto;
-    border: 1px solid #d63384;
     border-radius: 15px;
+    border: none;
     background-color: #fbddf7;
     cursor: pointer;
     font-weight: bold;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.20);
 }
 
 /* Estilos para los botones de registro al pasar el mouse */
@@ -103,12 +106,33 @@ main {
 
 /* Estilos para el pie de página */
 footer {
-    margin: 0;
-    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    padding: 10px;
     background-color: #d63384;
     color: white;
     text-align: center;
     width: 100%;
-    font-size: 0.60rem;
-    padding-top: 2px;
+    font-size: 0.80rem;
+    box-shadow: 0 -5px 5px rgba(0, 0, 0, 0.10);
+}
+
+/* Estilos para ajuste responsivo */
+
+@media (max-width: 1200px) {
+    .footer {
+        flex-direction: column;
+    }
+}
+
+@media (min-width: 1201px) {
+    .header-nav {
+        max-width: 50%;
+        font-size: large;
+        font-weight: 700;
+
+    }
+
 }

@@ -1,41 +1,18 @@
 {% extends 'base.html.twig' %}
-{% block header %}
-  {{ parent() }}
-{% endblock %}
 
-{% block title %}
-  {{ parent() }}
-{% endblock %}
+{% block main %}
+  <main>
+    <div class="inicio-bienvenida">
+      <h1>Bienvenido al sistema de registro de entrada a las instalaciones del INE</h1>
+      <h2>Por favor, utilice el siguiente menú para continuar.</h2>
+    </div>
 
-{% block body %}
-  <body>
-    <header>
-      <h2>Registro de Entrada a Instalaciones</h2>
-    </header>
-    <nav class="header-nav">
-      <a href="">Inicio</a>
-      <a href="">Registro de Entrada</a>
-      <a href="">Registro de Salida</a>
-      <a href="/admin">Administración</a>
-    </nav>
-    <main>
-      <div class="inicio-bienvenida">
-        <h1>Bienvenido al sistema de registro de entrada a las instalaciones del INE</h1>
-        <h2>Por favor, utilice el siguiente menú para continuar.</h2>
+    <div class="inicio-opciones">
+      <h2>Seleccione una opción</h2>
+      <div class="botones-registro">
+        <button class="boton-registro-entrada">Registrar Entrada</button>
+        <button class="boton-registro-salida">Registrar Salida</button>
       </div>
-
-      <div class="inicio-opciones">
-        <h2>Seleccione una opción</h2>
-        <div class="botones-registro">
-          <button class="boton-registro-entrada">Registrar Entrada</button>
-          <button class="boton-registro-salida">Registrar Salida</button>
-        </div>
-      </div>
-    </main>
-
-    <footer class="footer">
-      <p>&copy; 2026 Instituto Nacional Electoral, CBT Albert Einstein La Paz. Todos los derechos reservados.</p>
-      <p>Todos los derechos reservados.</p>
-    </footer>
-  </body>
+    </div>
+  </main>
 {% endblock %}
