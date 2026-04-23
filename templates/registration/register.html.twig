@@ -8,7 +8,7 @@
         <div class="col-md-12">
             <div class="card shadow-sm border-0">
                 <div class="card-body p-4">
-                    {# Encabezado corregido #}
+                    {# Encabezado #}
                     <div class="text-center mb-4">
                         <i class="bi bi-person-plus-fill text-primary" style="font-size: 3.5rem;"></i>
                         <h1 class="h3 mb-0 fw-bold">Registro de usuario</h1>
@@ -24,6 +24,31 @@
 
                     {{ form_start(registrationForm) }}
 
+                        {# Campo: Nombre #}
+                        <div class="mb-3">
+                            {{ form_label(registrationForm.nombre, 'Nombre(s)', {'label_attr': {'class': 'form-label'}}) }}
+                            <div class="input-group">
+                                <span class="input-group-text bg-light"><i class="bi bi-person text-muted"></i></span>
+                                {{ form_widget(registrationForm.nombre, {'attr': {'class': 'form-control', 'placeholder': 'Inserte nombre(s)'}}) }}
+                            </div>
+                            <div class="text-danger small">
+                                {{ form_errors(registrationForm.nombre) }}
+                            </div>
+                        </div>
+
+                        {# Campo: Apellido #}
+                        <div class="mb-3">
+                            {{ form_label(registrationForm.apellido, 'Apellido(s)', {'label_attr': {'class': 'form-label'}}) }}
+                            <div class="input-group">
+                                <span class="input-group-text bg-light"><i class="bi bi-vcard text-muted"></i></span>
+                                {{ form_widget(registrationForm.apellido, {'attr': {'class': 'form-control', 'placeholder': 'Inserte apellidos'}}) }}
+                            </div>
+                            <div class="text-danger small">
+                                {{ form_errors(registrationForm.apellido) }}
+                            </div>
+                        </div>
+
+                        {# Campo Email #}
                         <div class="mb-3">
                             {{ form_label(registrationForm.email, 'Correo electrónico', {'label_attr': {'class': 'form-label'}}) }}
                             <div class="input-group">
@@ -35,6 +60,7 @@
                             </div>
                         </div>
 
+                        {# Campo Contraseña #}
                         <div class="mb-3">
                             {{ form_label(registrationForm.plainPassword, 'Contraseña', {'label_attr': {'class': 'form-label'}}) }}
                             <div class="input-group">
