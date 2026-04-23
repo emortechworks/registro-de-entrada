@@ -36,7 +36,7 @@ return [
         'type' => 'css',
     ],
     'bootstrap-icons/font/bootstrap-icons.css' => [
-        'path' => 'bootstrap-icons.css', // Symfony lo buscará en los paths configurados arriba
+        'path' => 'bootstrap-icons.css',
         'type' => 'css',
     ],
 ];
