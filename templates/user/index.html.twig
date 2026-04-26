@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+  Listado de Usuarios
+{% endblock %}
+
+{% block body %}
+  <main>
+    <h1>Listado de Usuarios</h1>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="text-center">Email</th>
+          <th class="text-center">Nombre</th>
+          <th class="text-center">Apellido</th>
+          <th class="text-center">actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for user in users %}
+          <tr>
+            <td class="text-center">{{ user.email }}</td>
+            <td class="text-center">{{ user.nombre }}</td>
+            <td class="text-center">{{ user.apellido }}</td>
+            <td class="text-center">
+              <a href="{{ path('app_user_show', { id: user.id }) }}">show</a>
+              <a href="{{ path('app_user_edit', { id: user.id }) }}">edit</a>
+            </td>
+          </tr>
+        {% else %}
+          <tr>
+            <td colspan="7">no records found</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <a href="{{ path('app_register') }}">Create new</a>
+  </main>
+{% endblock %}
