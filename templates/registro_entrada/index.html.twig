@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}RegistroEntrada index{% endblock %}
+
+{% block body %}
+    <h1>RegistroEntrada index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Fecha_entrada</th>
+                <th>Hora_entrada</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Identificacion</th>
+                <th>Persona_que_visita</th>
+                <th>Departamento_que_visita</th>
+                <th>Motivo_de_visita</th>
+                <th>Fecha_salida</th>
+                <th>Hora_salida</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for registro_entrada in registro_entradas %}
+            <tr>
+                <td>{{ registro_entrada.id }}</td>
+                <td>{{ registro_entrada.fechaEntrada ? registro_entrada.fechaEntrada|date('Y-m-d') : '' }}</td>
+                <td>{{ registro_entrada.horaEntrada ? registro_entrada.horaEntrada|date('H:i:s') : '' }}</td>
+                <td>{{ registro_entrada.nombre }}</td>
+                <td>{{ registro_entrada.apellido }}</td>
+                <td>{{ registro_entrada.identificacion }}</td>
+                <td>{{ registro_entrada.personaQueVisita }}</td>
+                <td>{{ registro_entrada.departamentoQueVisita }}</td>
+                <td>{{ registro_entrada.motivoDeVisita }}</td>
+                <td>{{ registro_entrada.fechaSalida ? registro_entrada.fechaSalida|date('Y-m-d') : '' }}</td>
+                <td>{{ registro_entrada.horaSalida ? registro_entrada.horaSalida|date('H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_registro_entrada_show', {'id': registro_entrada.id}) }}">show</a>
+                    <a href="{{ path('app_registro_entrada_edit', {'id': registro_entrada.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="12">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_registro_entrada_new') }}">Create new</a>
+{% endblock %}
