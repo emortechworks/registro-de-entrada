@@ -1,5 +1,5 @@
 :root {
-    /* ---VARIABLES PERSONALIZADAS --- */
+    /* --- VARIABLES PERSONALIZADAS --- */
     --color-primario: #d63384;
     --color-primario-suave: #fbddf7;
     --color-primario-hover: #b02a6a;
@@ -14,7 +14,7 @@
     --sombra-footer: 0 -5px 5px rgba(0, 0, 0, 0.10);
     --transicion-rapida: background-color 0.3s ease, color 0.3s ease;
 
-    /* --- SOBRESCRITURA DE BOOTSTRAP --- */
+    /* --- SOBRESCRITURA DE VARIABLES GLOBALES DE BOOTSTRAP --- */
     --bs-primary: var(--color-primario);
     --bs-primary-rgb: 214, 51, 132;
     --bs-primary-bg-subtle: var(--color-primario-suave);
@@ -22,6 +22,37 @@
     --bs-focus-ring-color: rgba(214, 51, 132, 0.25);
     --bs-link-color: var(--color-primario);
     --bs-link-hover-color: var(--color-primario-hover);
+
+    /* --- SOBRESCRITURA DE SECONDARY (Para texto y componentes) --- */
+    --bs-secondary: var(--color-primario);
+    --bs-secondary-rgb: 214, 51, 132;
+    --bs-secondary-color: var(--color-primario);
+    --bs-secondary-color-rgb: 214, 51, 132;
+
+    /* --- COMPORTAMIENTO DE BOTONES --- */
+    --bs-btn-disabled-color: var(--color-primario-suave);
+    --bs-btn-hover-bg: var(--color-primario);
+    --bs-btn-hover-border-color: var(--color-primario);
+    --bs-btn-active-bg: var(--color-primario-hover);
+}
+
+/* --- CLASES FUERA DEL :ROOT --- */
+
+/* Ajuste específico para el botón outline secondary */
+.btn-outline-secondary {
+    --bs-btn-color: var(--color-primario);
+    --bs-btn-border-color: var(--color-primario);
+    --bs-btn-hover-color: var(--color-texto-blanco);
+    --bs-btn-hover-bg: var(--color-primario);
+    --bs-btn-hover-border-color: var(--color-primario);
+    --bs-btn-active-bg: var(--color-primario-hover);
+    --bs-btn-active-border-color: var(--color-primario-hover);
+    --bs-btn-focus-shadow-rgb: var(--bs-primary-rgb);
+}
+
+/* Forzar el color en la utilidad de texto */
+.text-secondary {
+    color: var(--color-primario) !important;
 }
 
 /* Ajustes base del cuerpo */
@@ -50,19 +81,22 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 95%;
+    width: 100%;
     flex: 1;
     padding-bottom: 2rem;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .table {
-    width: 80%;
-    margin-top: 1rem;
+    width: 100% !important;
+    margin: 1rem;
     border-collapse: collapse;
+    table-layout: fixed;
 }
 
 .table td {
-    max-width: 120px;
+    max-width: 150px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -186,18 +220,12 @@ footer {
         flex-wrap: wrap;
         gap: 10px;
     }
-
 }
 
 @media (min-width: 1201px) {
     .header-nav {
         max-width: 60%;
         font-size: 1.1rem;
-        font-weight: 700;
-
-        .table {
-            width: 100%;
-        }
-
-
     }
+
+}

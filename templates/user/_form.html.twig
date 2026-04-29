@@ -1,4 +1,52 @@
-{{ form_start(form) }}
-{{ form_widget(form) }}
-<button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_start(form, {'attr': {'class': 'needs-validation'}}) }}
+
+    <div class="row">
+        {# Campo Nombre #}
+        <div class="col-md-6 mb-3">
+            {{ form_label(form.nombre, 'Nombre', { 'label_attr': {'class': 'form-label fw-bold'} }) }}
+            <div class="input-group">
+                <span class="input-group-text bg-light"><i class="bi bi-person"></i></span>
+                {{ form_widget(form.nombre, {'attr':{'class': 'form-control'}}) }}
+            </div>
+            <div class="small text-danger">{{ form_errors(form.nombre) }}</div>
+        </div>
+
+        {# Campo Apellido #}
+        <div class="col-md-6 mb-3">
+            {{ form_label(form.apellido, 'Apellido', { 'label_attr': {'class': 'form-label fw-bold'} }) }}
+            <div>
+
+                {{ form_widget(form.apellido, {'attr':{'class': 'form-control', 'placeholder': 'Pérez'}}) }}
+            </div>
+            <div class="small text-danger">{{ form_errors(form.apellido) }}</div>
+        </div>
+    </div>
+
+    {# Campo Email #}
+    <div class="mb-3">
+        {{ form_label(form.email, 'Correo Electrónico', { 'label_attr': {'class': 'form-label fw-bold'} }) }}
+        <div class="input-group">
+            <span class="input-group-text bg-light"><i class="bi bi-envelope"></i></span>
+            {{ form_widget(form.email, {'attr':{'class': 'form-control', 'placeholder': 'usuario@ejemplo.com'}}) }}
+        </div>
+        <div class="small text-danger">{{ form_errors(form.email) }}</div>
+    </div>
+
+    {# Campo Password #}
+    <div class="mb-4">
+        {{ form_label(form.password, 'Contraseña', { 'label_attr': {'class': 'form-label fw-bold'} }) }}
+        <div class="input-group">
+            <span class="input-group-text bg-light"><i class="bi bi-lock"></i></span>
+            {{ form_widget(form.password, {'attr':{'class': 'form-control', 'placeholder': '*********'}} ) }}
+        </div>
+        <div class="small text-danger">{{ form_errors(form.password) }}</div>
+    </div>
+
+    {# Botón de Acción #}
+    <div class="d-grid gap-2">
+        <button class="btn btn-primary btn-lg shadow-sm">
+            <i class="bi bi-save me-2"></i> {{ button_label|default('Actualizar datos') }}
+        </button>
+    </div>
+
 {{ form_end(form) }}

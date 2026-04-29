@@ -55,7 +55,7 @@ Registro de usuario administrador
                             {{ form_label(registrationForm.email, 'Correo electrónico', {'label_attr': {'class': 'form-label'}}) }}
                             <div class="input-group">
                                 <span class="input-group-text bg-light"><i class="bi bi-envelope-at text-muted"></i></span>
-                                {{ form_widget(registrationForm.email, {'attr': {'class': 'form-control', 'placeholder': 'nombre@ejemplo.com'}}) }}
+                                {{ form_widget(registrationForm.email, {'attr': {'class': 'form-control', 'placeholder': 'correo@correo.com'}}) }}
                             </div>
                             <div class="text-danger small">
                                 {{ form_errors(registrationForm.email) }}
@@ -93,7 +93,7 @@ Registro de usuario administrador
             </div>
 
             <div class="text-center mt-3">
-                <a href="{{ path('app_inicio') }}" class="text-decoration-none text-muted small">
+                <a href="{{ path('app_user_index') }}" class="text-decoration-none text-muted small">
                     <i class="bi bi-arrow-left"></i> Volver al inicio
                 </a>
             </div>
