@@ -1,62 +1,72 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}RegistroEntrada{% endblock %}
+{% block title %}
+  RegistroEntrada
+{% endblock %}
 
 {% block body %}
-    <h1>RegistroEntrada</h1>
-
-    <table class="table">
-        <tbody>
-            <tr>
+  <div class="container py-4">
+    <div class="card">
+      <div class="card-header d-flex justify-content-between align-items-center">
+        <h1 class="h5 mb-0">Registro de entrada #{{ registro_entrada.id }}</h1>
+        <div>
+          <a href="{{ path('app_registro_entrada_index') }}" class="btn btn-secondary btn-sm me-2"><i class="bi bi-arrow-left me-1" aria-hidden="true"></i> Volver</a>
+          <a href="{{ path('app_registro_entrada_edit', { id: registro_entrada.id }) }}" class="btn btn-primary btn-sm me-2"><i class="bi bi-pencil me-1" aria-hidden="true"></i> Editar</a>
+          <span class="d-inline-block align-middle">{{ include('registro_entrada/_delete_form.html.twig') }}</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-striped table-bordered mb-0">
+            <tbody>
+              <tr>
                 <th>Id</th>
                 <td>{{ registro_entrada.id }}</td>
-            </tr>
-            <tr>
-                <th>Fecha_entrada</th>
+              </tr>
+              <tr>
+                <th>Fecha entrada</th>
                 <td>{{ registro_entrada.fechaEntrada ? registro_entrada.fechaEntrada|date('Y-m-d') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Hora_entrada</th>
+              </tr>
+              <tr>
+                <th>Hora entrada</th>
                 <td>{{ registro_entrada.horaEntrada ? registro_entrada.horaEntrada|date('H:i:s') : '' }}</td>
-            </tr>
-            <tr>
+              </tr>
+              <tr>
                 <th>Nombre</th>
                 <td>{{ registro_entrada.nombre }}</td>
-            </tr>
-            <tr>
+              </tr>
+              <tr>
                 <th>Apellido</th>
                 <td>{{ registro_entrada.apellido }}</td>
-            </tr>
-            <tr>
-                <th>Identificacion</th>
+              </tr>
+              <tr>
+                <th>Identificación</th>
                 <td>{{ registro_entrada.identificacion }}</td>
-            </tr>
-            <tr>
-                <th>Persona_que_visita</th>
+              </tr>
+              <tr>
+                <th>Persona que visita</th>
                 <td>{{ registro_entrada.personaQueVisita }}</td>
-            </tr>
-            <tr>
-                <th>Departamento_que_visita</th>
+              </tr>
+              <tr>
+                <th>Departamento que visita</th>
                 <td>{{ registro_entrada.departamentoQueVisita }}</td>
-            </tr>
-            <tr>
-                <th>Motivo_de_visita</th>
+              </tr>
+              <tr>
+                <th>Motivo de visita</th>
                 <td>{{ registro_entrada.motivoDeVisita }}</td>
-            </tr>
-            <tr>
-                <th>Fecha_salida</th>
+              </tr>
+              <tr>
+                <th>Fecha salida</th>
                 <td>{{ registro_entrada.fechaSalida ? registro_entrada.fechaSalida|date('Y-m-d') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Hora_salida</th>
+              </tr>
+              <tr>
+                <th>Hora salida</th>
                 <td>{{ registro_entrada.horaSalida ? registro_entrada.horaSalida|date('H:i:s') : '' }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <a href="{{ path('app_registro_entrada_index') }}">back to list</a>
-
-    <a href="{{ path('app_registro_entrada_edit', {'id': registro_entrada.id}) }}">edit</a>
-
-    {{ include('registro_entrada/_delete_form.html.twig') }}
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
 {% endblock %}

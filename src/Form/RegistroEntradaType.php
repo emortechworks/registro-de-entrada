@@ -12,16 +12,16 @@ class RegistroEntradaType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('fecha_entrada')
-            ->add('hora_entrada')
+            #->add('fecha_entrada')
+            #->add('hora_entrada')
             ->add('nombre')
             ->add('apellido')
             ->add('identificacion')
-            ->add('persona_que_visita')
-            ->add('departamento_que_visita')
             ->add('motivo_de_visita')
-            ->add('fecha_salida')
-            ->add('hora_salida')
+            ->add('departamento_que_visita')
+            ->add('persona_que_visita')
+            #->add('fecha_salida')
+            #->add('hora_salida')
         ;
     }
 

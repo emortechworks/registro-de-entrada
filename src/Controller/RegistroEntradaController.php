@@ -31,6 +31,10 @@ final class RegistroEntradaController extends AbstractController
         $registroEntrada = new RegistroEntrada();
         $form = $this->createForm(RegistroEntradaType::class, $registroEntrada);
         $form->handleRequest($request);
+        $fechaHora = new \DateTime('now');
+        $registroEntrada->setFechaEntrada($fechaHora);
+        $registroEntrada->setHoraEntrada($fechaHora);
+
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->persist($registroEntrada);

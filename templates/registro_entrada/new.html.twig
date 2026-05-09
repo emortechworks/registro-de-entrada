@@ -1,11 +1,21 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New RegistroEntrada{% endblock %}
+{% block title %}
+  New RegistroEntrada
+{% endblock %}
 
 {% block body %}
-    <h1>Create new RegistroEntrada</h1>
+  <div class="container py-4">
+    <div class="card">
+      <div class="card-body">
+        <h1 class="h5"><i class="bi bi-plus-circle me-2" aria-hidden="true"></i> Crear nuevo registro</h1>
 
-    {{ include('registro_entrada/_form.html.twig') }}
+        {{ include('registro_entrada/_form.html.twig', { button_label: 'Guardar' }) }}
 
-    <a href="{{ path('app_registro_entrada_index') }}">back to list</a>
+        <div class="mt-3">
+          <a href="{{ path('app_registro_entrada_index') }}" class="btn btn-secondary"><i class="bi bi-arrow-left me-1" aria-hidden="true"></i> Volver</a>
+        </div>
+      </div>
+    </div>
+  </div>
 {% endblock %}

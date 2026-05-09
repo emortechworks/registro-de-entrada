@@ -1,4 +1,64 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+
+{{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+    {# Render hidden token explicitly if present #}
+    {% if form._token is defined %}
+        {{ form_widget(form._token) }}
+    {% endif %}
+
+    <div class="row g-3">
+        <div class="col-12 col-md-6">
+            <div class="mb-3">
+                {{ form_label(form.nombre, 'Nombre', { 'label_attr': {'class': 'form-label'} }) }}
+                {{ form_widget(form.nombre, { 'attr': {'class': 'form-control'} }) }}
+                {{ form_errors(form.nombre) }}
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6">
+            <div class="mb-3">
+                {{ form_label(form.apellido, 'Apellido', { 'label_attr': {'class': 'form-label'} }) }}
+                {{ form_widget(form.apellido, { 'attr': {'class': 'form-control'} }) }}
+                {{ form_errors(form.apellido) }}
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6">
+            <div class="mb-3">
+                {{ form_label(form.identificacion, 'Identificación', { 'label_attr': {'class': 'form-label'} }) }}
+                {{ form_widget(form.identificacion, { 'attr': {'class': 'form-control'} }) }}
+                {{ form_errors(form.identificacion) }}
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6">
+            <div class="mb-3">
+                {{ form_label(form.persona_que_visita, 'Persona que visita', { 'label_attr': {'class': 'form-label'} }) }}
+                {{ form_widget(form.persona_que_visita, { 'attr': {'class': 'form-control'} }) }}
+                {{ form_errors(form.persona_que_visita) }}
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6">
+            <div class="mb-3">
+                {{ form_label(form.departamento_que_visita, 'Departamento', { 'label_attr': {'class': 'form-label'} }) }}
+                {{ form_widget(form.departamento_que_visita, { 'attr': {'class': 'form-control'} }) }}
+                {{ form_errors(form.departamento_que_visita) }}
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6">
+            <div class="mb-3">
+                {{ form_label(form.motivo_de_visita, 'Motivo', { 'label_attr': {'class': 'form-label'} }) }}
+                {{ form_widget(form.motivo_de_visita, { 'attr': {'class': 'form-control'} }) }}
+                {{ form_errors(form.motivo_de_visita) }}
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-3">
+        <button class="btn btn-primary ms-2" type="submit">
+        <i class="bi bi-save me-1" aria-hidden="true"></i> {{ button_label|default('Guardar') }}
+        </button>
+    </div>
+
 {{ form_end(form) }}
